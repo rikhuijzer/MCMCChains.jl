@@ -148,7 +148,7 @@ Base.getindex(c::Chains, v::String) = c[:, [v], :]
 Base.getindex(c::Chains, v::Vector{String}) = c[:, v, :]
 
 function Base.getindex(c::Chains, v::Vector{Symbol})
-    syms = _sym2index(c, v)
+    syms = _sym2index(c, v; sorted = true)
     return c[:, syms, :]
 end
 
